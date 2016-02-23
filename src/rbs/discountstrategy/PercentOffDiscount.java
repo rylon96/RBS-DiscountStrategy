@@ -1,24 +1,16 @@
 package rbs.discountstrategy;
-public class QuantityDiscount implements DiscountStrategy{
+public class PercentOffDiscount implements DiscountStrategy{
 
     private double discountRate;
-    private int minQty;
-    private final int NO_DISCOUNT = 0;
     
-    public QuantityDiscount(double discountRate, int minQty){
+    public PercentOffDiscount(double discountRate){
         setDiscountRate(discountRate);
-        setMinQty(minQty);
     }
     
     @Override
     public double getDiscountAmount(int qty, double unitCost) {
         //Needs Validation
-        if(qty >= minQty) {
         return unitCost * qty * discountRate;
-        } else {
-            return NO_DISCOUNT;
-        }
-        
     }
 
     public double getDiscountRate() {
@@ -30,14 +22,6 @@ public class QuantityDiscount implements DiscountStrategy{
         this.discountRate = discountRate;
     }
 
-    public int getMinQty() {
-        return minQty;
-    }
-
-    public final void setMinQty(int minQty) {
-        //Needs Validation
-        this.minQty = minQty;
-    }
 
     
 }
