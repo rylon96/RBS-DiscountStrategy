@@ -1,5 +1,5 @@
 package rbs.discountstrategy;
-public class FakeDatabase {
+public class FakeDatabase implements DatabaseStrategy {
     private Customer[] customers = {
       new Customer("100","Billy Bob"),
       new Customer("200","Francis Ajax"),
