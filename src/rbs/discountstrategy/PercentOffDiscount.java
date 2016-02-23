@@ -13,7 +13,7 @@ public class PercentOffDiscount implements DiscountStrategy{
         return unitCost * qty * discountRate;
     }
 
-    public double getDiscountRate() {
+    public final double getDiscountRate() {
         return discountRate;
     }
 

@@ -8,9 +8,9 @@ public class FakeDatabase {
     
     
     private Product[] products = {
-        new Product("001","Windex"),
-        new Product("002","Nasalspray"),
-        new Product
+        new Product("001","Green Hat", 11.99, new PercentOffDiscount(.10)),
+        new Product("002","Blue Shirt", 9.99, new FlatAmountDiscount(5.00)),
+        new Product("003","Red Pants", 15.99, new NoDiscount())
     };
     
 }

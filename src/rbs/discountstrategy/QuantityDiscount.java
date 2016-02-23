@@ -11,7 +11,7 @@ public class QuantityDiscount implements DiscountStrategy{
     }
     
     @Override
-    public double getDiscountAmount(int qty, double unitCost) {
+    public final double getDiscountAmount(int qty, double unitCost) {
         //Needs Validation
         if(qty >= minQty) {
         return unitCost * qty * discountRate;
@@ -21,7 +21,7 @@ public class QuantityDiscount implements DiscountStrategy{
         
     }
 
-    public double getDiscountRate() {
+    public final double getDiscountRate() {
         return discountRate;
     }
 
@@ -30,7 +30,7 @@ public class QuantityDiscount implements DiscountStrategy{
         this.discountRate = discountRate;
     }
 
-    public int getMinQty() {
+    public final int getMinQty() {
         return minQty;
     }
 
