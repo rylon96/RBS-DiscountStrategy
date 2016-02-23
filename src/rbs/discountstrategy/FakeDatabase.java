@@ -6,11 +6,37 @@ public class FakeDatabase {
       new Customer("300","Peter Willy")
     };
     
-    
     private Product[] products = {
         new Product("001","Green Hat", 11.99, new PercentOffDiscount(.10)),
         new Product("002","Blue Shirt", 9.99, new FlatAmountDiscount(5.00)),
         new Product("003","Red Pants", 15.99, new NoDiscount())
     };
+    
+    public final Customer findCustomerById(String customerId){
+        //Needs Validation
+        Customer customer = null;
+        
+        for(Customer c : customers){
+            if(c.getCustomerId().equals(customerId)){
+                customer = c;
+                break;
+            }
+        }
+        
+        return customer;
+    }
+    public final Product findProductById(String productId){
+        //Needs Validation
+        Product product = null;
+        
+        for(Product p : products){
+            if(p.getProductId().equals(productId)){
+                product = p;
+                break;
+            }
+        }
+        
+        return product;
+    }
     
 }
