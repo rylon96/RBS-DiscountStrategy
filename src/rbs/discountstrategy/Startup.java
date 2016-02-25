@@ -15,6 +15,7 @@ public class Startup {
         
         //Test 2
         register.addItemToSale("001", 2);
+        register.addItemToSale("002", 2);
         
         LineItem[] items = register.getReceipt().getLineItems();
         
