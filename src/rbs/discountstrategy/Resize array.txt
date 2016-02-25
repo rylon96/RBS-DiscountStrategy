@@ -1,0 +1,14 @@
+A Trick to Fake Resize of a Java Array
+--------------------------------------------
+
+Take the original array, "originalArray";
+Create a temp array, "tempArray" that is 1 size larger.
+Copy all items from original into temp
+Then add new item to tempArray
+Set the variable for originalArray = tempArray;
+
+        for(int i=0; i< lineItems.length; i++){
+            tempArray[i] = lineItems[i];
+        }
+        tempArray[tempArray.length - 1] = item;
+        lineItems = tempArray;

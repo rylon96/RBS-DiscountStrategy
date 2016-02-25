@@ -1,11 +1,12 @@
 package rbs.discountstrategy;
 public class Product {
-    private String productName;
     private String productId;
+    private String productName;
+
     private double unitCost;
     private DiscountStrategy discount;
 
-    public Product(String productName, String productId, double unitCost, DiscountStrategy discount) {
+    public Product(String productId, String productName, double unitCost, DiscountStrategy discount) {
         setProductName(productName);
         setProductId(productId);
         setUnitCost(unitCost);

@@ -1,12 +1,13 @@
 package rbs.discountstrategy;
 public class Customer {
     
-    private String customerName;
     private String customerId;
+    private String customerName;
+    
 
-    public Customer(String customerName, String customerID) {
-        setCustomerName(customerName);
+    public Customer(String customerID, String customerName) {
         setCustomerId(customerID);
+        setCustomerName(customerName);
     }
 
     public String getCustomerName() {

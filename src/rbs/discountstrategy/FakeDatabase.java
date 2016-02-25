@@ -12,6 +12,7 @@ public class FakeDatabase implements DatabaseStrategy {
         new Product("003","Red Pants", 15.99, new NoDiscount())
     };
     
+    @Override
     public final Customer findCustomerById(String customerId){
         //Needs Validation
         Customer customer = null;
@@ -25,6 +26,7 @@ public class FakeDatabase implements DatabaseStrategy {
         
         return customer;
     }
+    @Override
     public final Product findProductById(String productId){
         //Needs Validation
         Product product = null;

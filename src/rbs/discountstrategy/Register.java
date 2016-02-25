@@ -1,10 +1,10 @@
 package rbs.discountstrategy;
 public class Register {
     private Receipt receipt;
-    //private String storeName;
+    private String storeName;
     
     public final void startNewSale(String customerId, DatabaseStrategy db){
-        
+        //needs validation
         receipt = new Receipt(customerId, db);
     }
     
@@ -13,7 +13,7 @@ public class Register {
     }
     
     public final  void addItemToSale(String productId, int qty){
-        
+        receipt.addItemToReceipt(productId, qty);
     }
 
     public final Receipt getReceipt() {
