@@ -3,6 +3,7 @@ public class Receipt {
     private DatabaseStrategy db;
     private Customer customer;
     private LineItem[] lineItems;
+    private Register register;
     
     public Receipt(String customerId, DatabaseStrategy db){
         setDb(db);
@@ -22,15 +23,27 @@ public class Receipt {
        lineItems = origArray;
     }
     
-    public final String getRecieptData(){
-    
-    String data; 
-    data = "Date: " + "1/2/2016" + "\n" 
+    public final void getRecieptFormat(){     
+     
+        System.out.println("Date: " + "1/2/2016" + "\n" 
             + "Thank you for shopping at Kohls \n" 
-            + "ProductID        Product        Cost        Qty        Discount \n";
+            + "________________________________________________________________________________\n"
+            + "ProductID        Product        Cost        Qty        Discount        Subtotal \n");
     
-    return data;
+    }
     
+    public final void getRecieptData(){
+        
+        LineItem[] items = getLineItems();
+        
+        for(LineItem item : items){
+            System.out.println("   "+ item.getProduct().getProductId() + "           " 
+                                    + item.getProduct().getProductName() + "       "
+                                    + item.getProduct().getUnitCost() + "       " 
+                                    + item.getQty() + "          " 
+                                    + item.getLineItemDiscount()+ "           "
+                                    + item.getLineItemSubTotal());
+        }
     }
 
     public final DatabaseStrategy getDb() {

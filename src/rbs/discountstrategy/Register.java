@@ -1,11 +1,13 @@
 package rbs.discountstrategy;
 public class Register {
     private Receipt receipt;
+    private Printer printer;
     private String storeName;
     
     public final void startNewSale(String customerId, DatabaseStrategy db){
         //needs validation
         receipt = new Receipt(customerId, db);
+        printer = new Printer();
     }
     
     public final void endSale(){
@@ -24,5 +26,23 @@ public class Register {
         //Needs validation
         this.receipt = receipt;
     }
+
+    public final Printer getPrinter() {
+        return printer;
+    }
+
+    public final void setPrinter(Printer printer) {
+        this.printer = printer;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+    
+    
     
 }

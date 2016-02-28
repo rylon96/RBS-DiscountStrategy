@@ -6,7 +6,8 @@ public class Startup {
         
         
         //Start Talking to Objects
-        Register register = new Register();
+        Register register = new Register(); 
+       
         register.startNewSale("100", db);
         
         //Test 1
@@ -16,13 +17,20 @@ public class Startup {
         //Test 2
         register.addItemToSale("001", 2);
         register.addItemToSale("002", 2);
+        register.addItemToSale("003", 6);
         
         LineItem[] items = register.getReceipt().getLineItems();
         
-        for(LineItem item : items){
-            System.out.println(item.getProduct().getProductName());    
+        register.getReceipt().getRecieptFormat();
+        
+        register.getReceipt().getRecieptData();
+        
+        //register.getPrinter().printReceipt();
+                    
         }
+        
+
         
     }
     
-}
+

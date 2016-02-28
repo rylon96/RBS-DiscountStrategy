@@ -15,6 +15,10 @@ public class LineItem {
     public final double getLineItemDiscount(){
         return product.getDiscount().getDiscountAmount(qty, product.getUnitCost());
     }
+    //Post Discount
+    //public final double getLineItemTotal(){
+    //    return qty * product.getUnitCost() - 
+    //}
     
     public final Product getProduct() {
         return product;
