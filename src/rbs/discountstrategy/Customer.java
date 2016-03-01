@@ -10,7 +10,7 @@ public class Customer {
         setCustomerName(customerName);
     }
 
-    public String getCustomerName() {
+    public final String getCustomerName() {
         return customerName;
     }
 
@@ -19,7 +19,7 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public String getCustomerId() {
+    public final String getCustomerId() {
         return customerId;
     }
 

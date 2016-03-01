@@ -8,7 +8,7 @@ public class PercentOffDiscount implements DiscountStrategy{
     }
     
     @Override
-    public double getDiscountAmount(int qty, double unitCost) {
+    public final double getDiscountAmount(int qty, double unitCost) {
         //Needs Validation
         return unitCost * qty * discountRate;
     }

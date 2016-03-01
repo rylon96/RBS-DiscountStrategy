@@ -4,7 +4,14 @@ public class Receipt {
     private Customer customer;
     private LineItem[] lineItems;
     private Register register;
-    private Printer printer;
+    public final String ID_HEADER = "ProductID";
+    public final String PRODUCT_NAME = "Product";
+    public final String COST = "Cost";
+    public final String QTY = "Qty";
+    public final String SUBTOTAL = "Subtotal";
+    public final String DISCOUNT = "Discount";
+    public final String TAX = "Tax";
+    public final String DISCOUNT_TAX_SUBTOTAL = "Discount/Tax Subtotal";
     
     public Receipt(String customerId, DatabaseStrategy db){
         setDb(db);
@@ -23,27 +30,25 @@ public class Receipt {
        origArray = tempArray;
        lineItems = origArray;
     }
-    public final void getRecieptToBePrinted(){
-        getRecieptFormat();
-        getRecieptData();
-    }
     
-    public final void getRecieptFormat(){     
+    public final void outputRecieptData(){     
       
 
         System.out.println("Customer Id:" + customer.getCustomerId()+ " Name:" +customer.getCustomerName() +
                 "\nDate: " + "1/2/2016" + "\n" 
             + "Thank you for shopping at Kohls \n" 
             + "_______________________________________________________________________________________________________________________\n"
-            + "ProductID        Product         Cost       Qty        Subtotal         Discount       Tax       Discount/Tax Subtotal  \n");
+            + ID_HEADER + "        Product         Cost       Qty        Subtotal         Discount       Tax       Discount/Tax Subtotal  \n");
     
-    }
-    
-    public final void getRecieptData(){
+        double totalBeforeDiscountAndTax = 0;
+        double totalAfterDiscountAndTax = 0;
         
         LineItem[] items = getLineItems();
         
         for(LineItem item : items){
+            totalBeforeDiscountAndTax += item.getLineItemSubTotal();
+            totalAfterDiscountAndTax += item.getLineItemDiscountTaxSubTotal();
+            
             System.out.println("   "+ item.getProduct().getProductId() + "           " 
                                     + item.getProduct().getProductName() + "       "
                                     + item.getProduct().getUnitCost() + "       " 
@@ -53,6 +58,10 @@ public class Receipt {
                                     + Math.round(item.getLineItemTax() * 100.0) / 100.0+"           "
                                     + Math.round(item.getLineItemDiscountTaxSubTotal() * 100.0) / 100.0);
         }
+        System.out.println("\n\n                "+"Total before Discount and Tax");
+        System.out.println("                "+totalBeforeDiscountAndTax);
+        System.out.println("\n                "+"Total after Discount and Tax");
+        System.out.println("                "+totalAfterDiscountAndTax);
     }
 
     public final DatabaseStrategy getDb() {
@@ -60,6 +69,7 @@ public class Receipt {
     }
 
     public final void setDb(DatabaseStrategy db) {
+        //Needs Validation
         this.db = db;
     }
 
@@ -68,14 +78,16 @@ public class Receipt {
     }
 
     public final void setCustomer(Customer customer) {
+        //Needs Validation
         this.customer = customer;
     }
 
-    public LineItem[] getLineItems() {
+    public final LineItem[] getLineItems() {
         return lineItems;
     }
 
-    public void setLineItems(LineItem[] lineItems) {
+    public final void setLineItems(LineItem[] lineItems) {
+        //Needs Validation
         this.lineItems = lineItems;
     }
     

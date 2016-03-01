@@ -4,16 +4,17 @@ public class FlatAmountDiscount implements DiscountStrategy {
     private double discountRate;
 
     public FlatAmountDiscount(double discountRate) {
+        //Needs Validation
         setDiscountRate(discountRate);
     }
     
     @Override
-    public double getDiscountAmount(int qty, double unitCost) {
+    public final double getDiscountAmount(int qty, double unitCost) {
         //needs validation
         return unitCost - discountRate;
     }
 
-    public double getDiscountRate() {
+    public final double getDiscountRate() {
         return discountRate;
     }
 

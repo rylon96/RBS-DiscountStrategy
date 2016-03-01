@@ -1,8 +1,8 @@
 package rbs.discountstrategy;
 public class LineItem {
     private Product product;
-    private Receipt receipt;
     private int qty;
+    private double tax = 0.05;
 
     public LineItem(String productId, int qty, DatabaseStrategy db) {
         setProduct(db.findProductById(productId));
@@ -14,7 +14,7 @@ public class LineItem {
     }
     
     public final double getLineItemTax(){
-        double tax = 0.05;
+       
         
         return qty * product.getUnitCost() * tax;
     }
@@ -27,17 +27,12 @@ public class LineItem {
         return qty * product.getUnitCost() - getLineItemDiscount() - getLineItemTax();
     }
     
-    //Pre Discount
-    
-    //How do I calculate the total.
-    //Need Help
-    //public final double getLineItemTotal(){}
-    //public final double getLineItemDiscountTotal(){}
     public final Product getProduct() {
         return product;
     }
 
     public final void setProduct(Product product) {
+        //Needs Validation
         this.product = product;
     }
 
@@ -46,15 +41,16 @@ public class LineItem {
     }
 
     public final void setQty(int qty) {
+        //Needs Validation
         this.qty = qty;
     }
 
-    public final Receipt getReceipt() {
-        return receipt;
+    public final double getTax() {
+        return tax;
     }
 
-    public final void setReceipt(Receipt receipt) {
-        this.receipt = receipt;
+    public final void setTax(double tax) {
+        this.tax = tax;
     }
     
     
