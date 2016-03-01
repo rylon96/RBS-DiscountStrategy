@@ -8,18 +8,25 @@ public class LineItem {
         setProduct(db.findProductById(productId));
         setQty(qty);
     }
-    //Pre Discount
+    //Pre Discount and Tax
     public final double getLineItemSubTotal(){
         return qty * product.getUnitCost();
+    }
+    
+    public final double getLineItemTax(){
+        double tax = 0.05;
+        
+        return qty * product.getUnitCost() * tax;
     }
     
     public final double getLineItemDiscount(){
         return product.getDiscount().getDiscountAmount(qty, product.getUnitCost());
     }
-    //Post Discount
-    public final double getLineItemDiscountSubTotal(){
-        return qty * product.getUnitCost() - getLineItemDiscount();
+    //Post Discount and Tax
+    public final double getLineItemDiscountTaxSubTotal(){
+        return qty * product.getUnitCost() - getLineItemDiscount() - getLineItemTax();
     }
+    
     //Pre Discount
     
     //How do I calculate the total.

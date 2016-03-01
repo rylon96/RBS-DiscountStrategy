@@ -24,11 +24,13 @@ public class Receipt {
     }
     
     public final void getRecieptFormat(){     
-     
-        System.out.println("Date: " + "1/2/2016" + "\n" 
+      
+
+        System.out.println("Customer Id:" + customer.getCustomerId()+ " Name:" +customer.getCustomerName() +
+                "\nDate: " + "1/2/2016" + "\n" 
             + "Thank you for shopping at Kohls \n" 
-            + "____________________________________________________________________________________________________________\n"
-            + "ProductID        Product        Cost        Qty        Discount        Subtotal        Discounted Subtotal  \n");
+            + "_______________________________________________________________________________________________________________________\n"
+            + "ProductID        Product         Cost       Qty        Subtotal         Discount       Tax       Discount/Tax Subtotal  \n");
     
     }
     
@@ -41,9 +43,10 @@ public class Receipt {
                                     + item.getProduct().getProductName() + "       "
                                     + item.getProduct().getUnitCost() + "       " 
                                     + item.getQty() + "          " 
-                                    + item.getLineItemDiscount()+ "           "
                                     + item.getLineItemSubTotal()+"            "
-                                    + item.getLineItemDiscountSubTotal());
+                                    + Math.round(item.getLineItemDiscount() * 100.0) / 100.0+ "           "
+                                    + Math.round(item.getLineItemTax() * 100.0) / 100.0+"           "
+                                    + Math.round(item.getLineItemDiscountTaxSubTotal() * 100.0) / 100.0);
         }
     }
 

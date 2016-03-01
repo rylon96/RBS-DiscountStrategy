@@ -12,8 +12,7 @@ public class Startup {
         register.startNewSale("100", db);
         
         //Test 1
-        Customer customer = register.getReceipt().getCustomer();
-        System.out.println("Customer " + customer.getCustomerName()+ " found and added to receipt");
+       
         
         //Test 2
         register.addItemToSale("001", 2);
