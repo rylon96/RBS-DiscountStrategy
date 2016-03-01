@@ -11,7 +11,8 @@ public class Register {
     }
     
     public final void endSale(){
-        
+        //printer.printReceipt();
+        receipt.getRecieptToBePrinted();
     }
     
     public final  void addItemToSale(String productId, int qty){
