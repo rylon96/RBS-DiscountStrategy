@@ -21,9 +21,7 @@ public class Startup {
         
         LineItem[] items = register.getReceipt().getLineItems();
         
-        register.getReceipt().getRecieptFormat();
-        
-        register.getReceipt().getRecieptData();
+        register.endSale();
         
         
         

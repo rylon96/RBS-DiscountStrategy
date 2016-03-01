@@ -1,10 +1,10 @@
 package rbs.discountstrategy;
 public class Printer {
+    private Register register;
     private Receipt receipt;
     
     public final void printReceipt(){
-        getReceipt().getRecieptFormat();
-        getReceipt().getRecieptData();        
+        receipt.getRecieptToBePrinted();
     }
 
     public final Receipt getReceipt() {
@@ -13,6 +13,14 @@ public class Printer {
 
     public final void setReceipt(Receipt receipt) {
         this.receipt = receipt;
+    }
+
+    public Register getRegister() {
+        return register;
+    }
+
+    public void setRegister(Register register) {
+        this.register = register;
     }
     
     

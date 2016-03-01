@@ -4,6 +4,7 @@ public class Receipt {
     private Customer customer;
     private LineItem[] lineItems;
     private Register register;
+    private Printer printer;
     
     public Receipt(String customerId, DatabaseStrategy db){
         setDb(db);
@@ -21,6 +22,10 @@ public class Receipt {
        tempArray[tempArray.length - 1] = item;
        origArray = tempArray;
        lineItems = origArray;
+    }
+    public final void getRecieptToBePrinted(){
+        getRecieptFormat();
+        getRecieptData();
     }
     
     public final void getRecieptFormat(){     
