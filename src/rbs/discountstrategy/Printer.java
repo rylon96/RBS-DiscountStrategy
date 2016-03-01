@@ -2,7 +2,6 @@ package rbs.discountstrategy;
 public class Printer {
     private Receipt receipt;
     
-    
     public final void printReceipt(){
         getReceipt().getRecieptFormat();
         getReceipt().getRecieptData();        

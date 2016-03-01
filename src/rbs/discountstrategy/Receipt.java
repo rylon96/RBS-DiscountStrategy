@@ -27,8 +27,8 @@ public class Receipt {
      
         System.out.println("Date: " + "1/2/2016" + "\n" 
             + "Thank you for shopping at Kohls \n" 
-            + "________________________________________________________________________________\n"
-            + "ProductID        Product        Cost        Qty        Discount        Subtotal \n");
+            + "____________________________________________________________________________________________________________\n"
+            + "ProductID        Product        Cost        Qty        Discount        Subtotal        Discounted Subtotal  \n");
     
     }
     
@@ -42,7 +42,8 @@ public class Receipt {
                                     + item.getProduct().getUnitCost() + "       " 
                                     + item.getQty() + "          " 
                                     + item.getLineItemDiscount()+ "           "
-                                    + item.getLineItemSubTotal());
+                                    + item.getLineItemSubTotal()+"            "
+                                    + item.getLineItemDiscountSubTotal());
         }
     }
 

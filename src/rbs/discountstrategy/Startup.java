@@ -7,6 +7,7 @@ public class Startup {
         
         //Start Talking to Objects
         Register register = new Register(); 
+        Printer printer = new Printer();
        
         register.startNewSale("100", db);
         
@@ -25,7 +26,9 @@ public class Startup {
         
         register.getReceipt().getRecieptData();
         
-        //register.getPrinter().printReceipt();
+        
+        
+        //printer.printReceipt();
                     
         }
         
