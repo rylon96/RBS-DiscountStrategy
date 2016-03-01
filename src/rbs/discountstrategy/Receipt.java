@@ -12,6 +12,8 @@ public class Receipt {
     public final String DISCOUNT = "Discount";
     public final String TAX = "Tax";
     public final String DISCOUNT_TAX_SUBTOTAL = "Discount/Tax Subtotal";
+    public final String TOTAL_BEFORE_DISCOUNT_AND_TAX = "Total before Discount and Tax";
+    public final String TOTAL_AFTER_DISCOUNT_AND_TAX = "Total after Discount and Tax";
     
     public Receipt(String customerId, DatabaseStrategy db){
         setDb(db);
@@ -38,10 +40,12 @@ public class Receipt {
                 "\nDate: " + "1/2/2016" + "\n" 
             + "Thank you for shopping at Kohls \n" 
             + "_______________________________________________________________________________________________________________________\n"
-            + ID_HEADER + "        Product         Cost       Qty        Subtotal         Discount       Tax       Discount/Tax Subtotal  \n");
+            + ID_HEADER + "        "+PRODUCT_NAME+"         "+COST+"       "+QTY+"        "+SUBTOTAL+"         "+DISCOUNT+"       "+TAX+"       "+DISCOUNT_TAX_SUBTOTAL+"  \n");
     
         double totalBeforeDiscountAndTax = 0;
         double totalAfterDiscountAndTax = 0;
+       
+
         
         LineItem[] items = getLineItems();
         
@@ -58,9 +62,9 @@ public class Receipt {
                                     + Math.round(item.getLineItemTax() * 100.0) / 100.0+"           "
                                     + Math.round(item.getLineItemDiscountTaxSubTotal() * 100.0) / 100.0);
         }
-        System.out.println("\n\n                "+"Total before Discount and Tax");
+        System.out.println("\n\n                "+TOTAL_BEFORE_DISCOUNT_AND_TAX);
         System.out.println("                "+totalBeforeDiscountAndTax);
-        System.out.println("\n                "+"Total after Discount and Tax");
+        System.out.println("\n                "+TOTAL_AFTER_DISCOUNT_AND_TAX);
         System.out.println("                "+totalAfterDiscountAndTax);
     }
 
