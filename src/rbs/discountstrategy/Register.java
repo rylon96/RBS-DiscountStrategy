@@ -1,6 +1,5 @@
 package rbs.discountstrategy;
 public class Register {
-    private ReceiptFormatStrategy fmt;
     private Receipt receipt;
     private String storeName;
     
